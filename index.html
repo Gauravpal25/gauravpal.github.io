@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaurav Pal | Product, Growth & FMCG Professional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0a0a0a;
+            --accent: #2563eb;
+            --text: #171717;
+            --text-light: #525252;
+            --bg: #ffffff;
+            --bg-soft: #f5f5f5;
+            --border: #e5e5e5;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 2rem 0;
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 0 8rem;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+        }
+
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-description {
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            line-height: 1.6;
+            color: var(--text);
+            max-width: 900px;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        .hero-sub {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            max-width: 750px;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        /* Section Headings */
+        .section {
+            padding: 6rem 0;
+            border-top: 1px solid var(--border);
+        }
+
+        h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+
+        /* Company Cards */
+        .company-grid {
+            display: grid;
+            gap: 3rem;
+        }
+
+        .company-card {
+            background: var(--bg-soft);
+            border-radius: 16px;
+            padding: 3rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .company-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        .company-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .company-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .company-role {
+            font-size: 1.125rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .company-meta {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .company-description {
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+
+        .achievements {
+            list-style: none;
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .achievements li {
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.9375rem;
+            line-height: 1.6;
+            color: var(--text);
+        }
+
+        .achievements li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: var(--bg-soft);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .project-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .skill-card {
+            padding: 2rem 0;
+        }
+
+        .skill-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .skill-list {
+            font-size: 0.9375rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .skill-description {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text);
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 0 3rem;
+            border-top: 1px solid var(--border);
+            margin-top: 6rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-text {
+            color: var(--text-light);
+            font-size: 0.9375rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .hero {
+                padding: 4rem 0 6rem;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+
+            .company-card {
+                padding: 2rem;
+            }
+
+            .skills-grid, .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="nav-content">
+                <a href="#" class="logo">Gaurav Pal</a>
+                <div class="nav-links">
+                    <a href="#experience">Experience</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#skills">Skills</a>
+                    <a href="https://www.linkedin.com/in/gauravpal25/" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Hi! I am Gaurav, a Business Development, Growth & FMCG Enthusiast!</h1>
+            <p class="hero-description">I have 10+ years of hands-on commercial experience across FMCG, retail, and sales. I built and scaled an FMCG business for 8 years, managing full P&L, pricing strategy, supplier negotiations, and team operations.</p>
+            <p class="hero-sub">I recently completed my MBA at Munich Business School and am currently based in Munich, Germany, exploring opportunities in startup growth, business development, and sales where my operator background can drive meaningful impact.</p>
+        </div>
+    </section>
+
+    <section id="experience" class="section">
+        <div class="container">
+            <h2>Company History</h2>
+            <div class="company-grid">
+                
+                <div class="company-card">
+                    <div class="company-header">
+                        <div>
+                            <div class="company-role">Founder & Owner</div>
+                            <div class="company-title">Sai Budget Mart</div>
+                            <div class="company-meta">FMCG Retail | India | Oct 2015 – Dec 2023</div>
+                        </div>
+                    </div>
+                    <p class="company-description">Built and operated an FMCG retail business from the ground up with a team of 8 employees. Owned full commercial P&L across 8 years, managing pricing, supplier negotiations, assortment strategy, and margin optimization in a competitive retail environment.</p>
+                    <ul class="achievements">
+                        <li>Owned full commercial P&L across 8 years with a team of 8 employees</li>
+                        <li>Drove 40% revenue growth within two years through market-aligned assortment</li>
+                        <li>Reduced procurement costs by 12% through strategic sourcing and trade negotiations</li>
+                        <li>Increased customer retention by 25% via structured B2B and retail account management</li>
+                        <li>Expanded active customer base by 20% through localized market analysis</li>
+                    </ul>
+                </div>
+
+                <div class="company-card">
+                    <div class="company-header">
+                        <div>
+                            <div class="company-role">Sales and Marketing Manager (Intern)</div>
+                            <div class="company-title">Kolter GmbH</div>
+                            <div class="company-meta">Munich, Germany | Aug 2025 – Dec 2025</div>
+                        </div>
+                    </div>
+                    <p class="company-description">Developed B2B and B2C market entry strategies in Germany, supporting commercial growth through structured market analysis and digital campaign management. Built and maintained client relationships in the German market.</p>
+                    <ul class="achievements">
+                        <li>Generated 15% increase in qualified leads through market entry strategies</li>
+                        <li>Conducted structured market and competitor analysis</li>
+                        <li>Managed digital product listings and campaign tracking</li>
+                        <li>Built B2B client relationships in the German market</li>
+                    </ul>
+                </div>
+
+                <div class="company-card">
+                    <div class="company-header">
+                        <div>
+                            <div class="company-role">Technical Support Executive</div>
+                            <div class="company-title">Teleperformance India</div>
+                            <div class="company-meta">India | Apr 2024 – Feb 2025</div>
+                        </div>
+                    </div>
+                    <p class="company-description">Managed high-volume customer interactions for Adobe products, achieving exceptional satisfaction rates through efficient case handling and technical problem-solving.</p>
+                    <ul class="achievements">
+                        <li>Achieved 98% customer satisfaction and 90% first contact resolution</li>
+                        <li>Reduced handling time by 15%, increased productivity by 20%</li>
+                        <li>Cut escalations by 30% through effective issue resolution</li>
+                    </ul>
+                </div>
+
+                <div class="company-card">
+                    <div class="company-header">
+                        <div>
+                            <div class="company-role">Sales and Marketing Associate</div>
+                            <div class="company-title">Hindustan Field Service (Unilever)</div>
+                            <div class="company-meta">India | Jun 2014 – Oct 2015</div>
+                        </div>
+                    </div>
+                    <p class="company-description">Executed promotional plans across retail accounts in the FMCG sector, supporting route-to-market execution through sales data analysis and competitor intelligence.</p>
+                    <ul class="achievements">
+                        <li>Delivered 15% increase in category sales through promotional execution</li>
+                        <li>Identified 5% margin improvement opportunity through performance monitoring</li>
+                        <li>Analyzed buying patterns and competitor activity across accounts</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                
+                <div class="project-card">
+                    <div class="project-title">Pure Essence: Freeze-Dried Indian Food Brand</div>
+                    <p class="project-description">Built a complete ready-to-eat freeze-dried Indian meals concept targeting the dehydrated meals market. Developed full product vision, go-to-market strategy, financial model, and comprehensive investor pitch deck.</p>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-title">MBA Thesis: FMCG Retail Disruption</div>
+                    <p class="project-description">The Disruptive Role of E-commerce in FMCG Grocery Retail: Causes of Store Closures and Strategies for Survival. Deep analysis of how digital transformation is reshaping traditional retail.</p>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-title">Student Club Leadership</div>
+                    <p class="project-description">Served as President of Student Club at Munich Business School, organizing events and building cross-cultural connections within the MBA community.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2>Skills & Expertise</h2>
+            <div class="skills-grid">
+                
+                <div class="skill-card">
+                    <div class="skill-title">Commercial & Sales</div>
+                    <div class="skill-list">P&L Management · Pricing Strategy · Commercial Negotiations · Key Account Management · Customer Acquisition</div>
+                    <p class="skill-description">Owned full commercial P&L for 8 years, managing pricing, supplier negotiations, and driving 40% revenue growth through strategic commercial execution in competitive FMCG markets.</p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-title">Strategic & Analytics</div>
+                    <div class="skill-list">Market Analysis · Competitive Intelligence · Data Analysis (Excel, Power BI) · Assortment Planning</div>
+                    <p class="skill-description">Use data-driven insights to identify growth opportunities, optimize assortment strategies, and inform commercial decision-making across retail and B2B environments.</p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-title">Operations & Execution</div>
+                    <div class="skill-list">CRM & Sales Tracking · Trade Marketing · Inventory Planning · Team Management · Process Optimization</div>
+                    <p class="skill-description">Built scalable operational processes from the ground up, managing teams, optimizing workflows, and ensuring efficient execution across retail and supplier operations.</p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-title">Technical Foundation</div>
+                    <div class="skill-list">MCA (Master of Computer Applications) · Tech-Driven Business · Digital Marketing · CRM Systems</div>
+                    <p class="skill-description">Technical education background (MCA) provides solid understanding of tech-driven business environments, enabling effective collaboration with technical teams and adoption of digital tools.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">© 2026 Gaurav Pal | Based in Munich, Germany</div>
+                <div class="footer-links">
+                    <a href="mailto:gaurav.pal@munich-business-school.de">Email</a>
+                    <a href="https://www.linkedin.com/in/gauravpal25/" target="_blank">LinkedIn</a>
+                    <a href="tel:+491521058">+49 152 1058 5354</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
